@@ -1,0 +1,56 @@
+
+// Border
+@mixin border-reset {
+  border: 0;
+}
+
+@mixin border-radius($n: 1) {
+  border-radius: (map-get($border-defaults, radius) * $n);
+}
+
+@mixin border-radius-left($n: 1) {
+  border-top-left-radius: (map-get($border-defaults, radius) * $n);
+  border-bottom-left-radius: (map-get($border-defaults, radius) * $n);
+}
+
+@mixin border-radius-right($n: 1) {
+  border-top-right-radius: (map-get($border-defaults, radius) * $n);
+  border-bottom-right-radius: (map-get($border-defaults, radius) * $n);
+}
+
+@mixin border-radius-top($n: 1) {
+  border-top-left-radius: (map-get($border-defaults, radius) * $n);
+  border-top-right-radius: (map-get($border-defaults, radius) * $n);
+}
+
+@mixin border-radius-bottom($n: 1) {
+  border-bottom-left-radius: (map-get($border-defaults, radius) * $n);
+  border-bottom-right-radius: (map-get($border-defaults, radius) * $n);
+}
+
+
+@mixin border($color: map-get($border-defaults, color), $border-size: 1) {
+  @if get-color($color) != null {
+    $color: get-color($color);
+  }
+
+  border-width: (map-get($border-defaults, size) * $border-size);
+  border-style: map-get($border-defaults, style);
+  border-color: $color;
+}
+
+@mixin border-top($color: map-get($border-defaults, color)) {
+  border-top: map-get($border-defaults, size) map-get($border-defaults, style) get-color($color);
+}
+
+@mixin border-bottom($color: map-get($border-defaults, color)) {
+  border-bottom: map-get($border-defaults, size) map-get($border-defaults, style) get-color($color);
+}
+
+@mixin border-left($color: map-get($border-defaults, color)) {
+  border-left: map-get($border-defaults, size) map-get($border-defaults, style) get-color($color);
+}
+
+@mixin border-right($color: map-get($border-defaults, color)) {
+  border-right: map-get($border-defaults, size) map-get($border-defaults, style) get-color($color);
+}

@@ -1,0 +1,13 @@
+
+
+// Links
+a {
+  @include color(theme-color2);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    @include color(color-darken(theme-color2));
+    @include text-underline;
+  }
+}

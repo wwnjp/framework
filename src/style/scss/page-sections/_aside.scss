@@ -1,0 +1,5 @@
+aside {
+  &.cta {
+    @include margin(1 0);
+  }
+}

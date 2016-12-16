@@ -1,0 +1,76 @@
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+form {
+  @include margin(0);
+}
+
+fieldset {
+  @include margin(0);
+  @include padding(0);
+  @include border-reset;
+  @include responsive(phone) {
+    width: 100%;
+  }
+}
+
+.field-container {
+  @include relative;
+  @include margin-bottom(2);
+  @include padding-right(3);
+
+
+  input,
+  .select-container,
+  textarea {
+    @include animate(.5);
+    @include block;
+    @include bg-color(white);
+    @include border(gray4);
+    @include border-radius;
+    @include drop-shadow(0, 0, get-color(theme-color2));
+    @include text(body);
+    @include padding(1.5 1);
+    line-height: 1.4;
+    width: 100%;
+
+    // Focus
+    &:focus,
+    &.success {
+      @include border(theme-color2);
+      @include drop-shadow(1, 0, fade-out(get-color(theme-color2), .5));
+      outline: none;
+    }
+
+    // Disabled
+    &.disabled,
+    &[disabled=disabled] {
+      @include bg-color(gray3);
+      @include opacity;
+      cursor: default;
+    }
+
+    // Fixes displays of spinners for number input fields.
+    // sass-lint:disable no-vendor-prefixes
+    &[type='number'] {
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+
+  textarea {
+    resize: none;
+  }
+}

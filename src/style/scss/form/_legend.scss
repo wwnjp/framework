@@ -1,0 +1,14 @@
+legend {
+  @include text-small;
+  @include text-uppercase;
+  @include margin(0);
+  @include padding(2 0);
+
+  &:after {
+    @include inline-block;
+    @include bg-color(map-get($border-defaults, color));
+
+    content: '';
+    height: map-get($border-defaults, size);
+  }
+}

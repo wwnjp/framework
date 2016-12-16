@@ -1,0 +1,14 @@
+
+footer {
+  @include relative;
+  @include bg-color(theme-color2);
+  @include responsive(phone) {
+    @include text-center;
+  }
+  @include padding(2 0);
+  @include z(50);
+
+  .copyright {
+    @include text-small;
+  }
+}

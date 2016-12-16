@@ -1,0 +1,65 @@
+
+// Margins
+@mixin margin($n: null) {
+  $t: 0;
+  $r: 0;
+  $b: 0;
+  $l: 0;
+
+  @if $n == null {
+    $t: 1;
+    $r: 1;
+    $b: 1;
+    $l: 1;
+  }
+
+  @else if length($n) == 1 {
+    $t: $n;
+    $r: $n;
+    $b: $n;
+    $l: $n;
+  }
+
+  @else if length($n) == 2 {
+    $t: nth($n, 1);
+    $r: nth($n, 2);
+    $b: nth($n, 1);
+    $l: nth($n, 2);
+  }
+
+  @else if length($n) == 3 {
+    $t: nth($n, 1);
+    $r: nth($n, 2);
+    $b: nth($n, 3);
+    $l: nth($n, 2);
+  }
+
+  @else {
+    $t: nth($n, 1);
+    $r: nth($n, 2);
+    $b: nth($n, 3);
+    $l: nth($n, 4);
+  }
+
+  @include margin-top($t);
+  @include margin-right($r);
+  @include margin-bottom($b);
+  @include margin-left($l);
+};
+
+
+@mixin margin-top($n: 1) {
+  margin-top: ($base-number * $n);
+}
+
+@mixin margin-right($n: 1) {
+  margin-right: ($base-number * $n);
+}
+
+@mixin margin-left($n: 1) {
+  margin-left: ($base-number * $n);
+}
+
+@mixin margin-bottom($n: 1) {
+  margin-bottom: ($base-number * $n);
+}

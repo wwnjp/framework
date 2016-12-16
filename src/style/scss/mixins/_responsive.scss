@@ -1,0 +1,38 @@
+
+// usage:
+// .foo {
+//     @include responsive(desktop) {
+//         // rules
+//     }
+// }
+
+
+@mixin responsive($device) {
+  @if map-has-key($responsive-sizes, $device) {
+    $keys: map-keys($responsive-sizes);
+    $vals: map-values($responsive-sizes);
+
+    @if index($keys, $device) == 1 {
+      @media screen and (min-width: #{map-get($responsive-sizes, $device)}) {
+        @content;
+      }
+    }
+
+    @else if index($keys, $device) == length($responsive-sizes) {
+      @media screen and (max-width: #{map-get($responsive-sizes, $device)}) {
+        @content;
+      }
+    }
+
+    @else {
+      $idx: index($keys, $device) - 1;
+      @debug $device, $idx;
+      $device2: nth($vals, $idx);
+      @debug $device, $device2;
+      @media screen and (min-width: #{map-get($responsive-sizes, $device)}) and (max-width: $device2) {
+        @content;
+      }
+    }
+
+  }
+}

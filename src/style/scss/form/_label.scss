@@ -1,0 +1,18 @@
+.field-container {
+  label {
+    @include block;
+    @include text-small;
+    @include text-uppercase;
+    @include color(black);
+    @include padding(2 0);
+
+    &.required,
+    &.required-true {
+      &::after {
+        @include text-bold;
+        @include margin-left(.5);
+        content: '*';
+      }
+    }
+  }
+}

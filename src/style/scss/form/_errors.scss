@@ -1,0 +1,71 @@
+
+
+// Error highlighting
+.error {
+  @include bg-color(gray5);
+  @include border(map-get($colors, gray5), 0);
+  @include border-bottom(map-get($colors, theme-color6));
+
+  &:focus {
+    @include border(map-get($colors, theme-color6), 0);
+    @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color6), .5));
+  }
+}
+
+.warning {
+  @include bg-color(gray5);
+  @include border(map-get($colors, theme-color5));
+
+  &:focus {
+    @include border(map-get($colors, theme-color5), 0);
+    @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color5), .5));
+  }
+}
+
+.valid {
+  @include bg-color(gray5);
+  @include border(map-get($colors, theme-green));
+
+  &:focus {
+    @include border(map-get($colors, theme-color4), 0);
+    @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color4), .5));
+  }
+}
+
+.error-field {
+  @include bg-color(gray3);
+  @include color(white);
+  @include text-small;
+  @include absolute;
+  @include padding;
+  @include triangle('up', 10px, map-get($colors, theme-color5));
+  @include animate(.5);
+  @include opacity(1);
+  @include drop-shadow(1, .5);
+  @include z(1000);
+  left: -5%;
+  top: 105%;
+
+  a {
+    @include block;
+    @include text-bold;
+    @include color(black);
+    @include text-underline;
+    @include margin(1 0);
+  }
+
+  &.off {
+    @include opacity(0);
+    @include z(-1);
+    top: 95%;
+  }
+}
+
+// Error popup
+.error ~ .error-field {
+  @include bg-color(theme-color6);
+}
+
+.warning ~ .error-field {
+  @include bg-color(theme-color5);
+}

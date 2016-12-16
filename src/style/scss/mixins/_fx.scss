@@ -1,0 +1,122 @@
+
+
+@mixin round {
+  border-radius: 50%;
+}
+
+
+@mixin drop-shadow($size: 1, $distance: 0, $color: rgba(0, 0, 0, .25), $x: 0) {
+  box-shadow: $x ($distance * $base-number) ($base-number * $size) $color;
+}
+
+
+@mixin opacity($opacity: .5) {
+  opacity: $opacity;
+}
+
+@mixin text-shadow {
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, .25);
+}
+
+
+.three-d-base {
+  perspective: 1000;
+  transform-style: preserve-3d;
+}
+
+@mixin transform($rules) {
+  transform: $rules;
+}
+
+@mixin animate($n: 1) {
+  transition: all (map-get($animation-defaults, time) * $n) map-get($animation-defaults, easing);
+}
+
+@mixin animate-bounce($n: 1) {
+  transition: all (map-get($animation-defaults, time) * $n) cubic-bezier(.175, .885, .32, 1.275);
+}
+
+@mixin animate-delay($n: 1) {
+  transition-delay: ($n * .5s);
+}
+
+// .keyframes($name; $arguments) {
+//  @-webkit-keyframes @name { $arguments(); }
+//  @keyframes @name { $arguments(); }
+// }
+
+
+
+// @mixin spinning(@n: 1) {
+//  .keyframes(spinning, {
+//    from {.transform(rotateZ(0deg)); }
+//    to   {.transform(rotateZ(360deg)); }
+//  });
+//  animation: spinning (@animation-time * @n) linear 0s infinite;
+// }
+
+@mixin circlify($n) {
+  clip-path: circle($n at center);
+}
+
+@mixin triangle($dir, $size, $color) {
+  @if $dir == 'up' {
+    &:before {
+      border-bottom: $size $color solid;
+      border-left: $size transparent solid;
+      border-right: $size transparent solid;
+      border-top: $size transparent solid;
+      content: '';
+      height: $size;
+      left: 25%;
+      position: absolute;
+      top: ($size * -2);
+      width: $size;
+    }
+  }
+}
+
+
+// JS FX
+.stickify {
+  @include fixed;
+  @include z(1000);
+}
+
+
+.show-on-scroll {
+  &.bottom {
+    @include fixed;
+    @include animate;
+    @include z(2000);
+    bottom: -4em;
+    left: 0;
+    width: 100%;
+
+    &.active {
+      bottom: 0;
+    }
+  }
+}
+
+
+.slide-from-top {
+  @include absolute;
+  @include animate-bounce(2);
+  @include transform(translateY(-100%));
+
+  &.active {
+    @include transform(translateY(0));
+  }
+}
+
+
+.slide-from-bottom {
+  @include absolute;
+  @include animate-bounce(2);
+  @include transform(translateY(100%));
+
+  &.active {
+    @include transform(translateY(0));
+  }
+}

@@ -1,0 +1,65 @@
+
+
+// Paddings
+@mixin padding($n: null) {
+  $t: 0;
+  $r: 0;
+  $b: 0;
+  $l: 0;
+
+  @if $n == null {
+    $t: 1;
+    $r: 1;
+    $b: 1;
+    $l: 1;
+  }
+
+  @else if length($n) == 1 {
+    $t: $n;
+    $r: $n;
+    $b: $n;
+    $l: $n;
+  }
+
+  @else if length($n) == 2 {
+    $t: nth($n, 1);
+    $r: nth($n, 2);
+    $b: nth($n, 1);
+    $l: nth($n, 2);
+  }
+
+  @else if length($n) == 3 {
+    $t: nth($n, 1);
+    $r: nth($n, 2);
+    $b: nth($n, 3);
+    $l: nth($n, 2);
+  }
+
+  @else {
+    $t: nth($n, 1);
+    $r: nth($n, 2);
+    $b: nth($n, 3);
+    $l: nth($n, 4);
+  }
+
+  @include padding-top($t);
+  @include padding-right($r);
+  @include padding-bottom($b);
+  @include padding-left($l);
+};
+
+@mixin padding-top($n: 1) {
+  padding-top: ($base-number * $n);
+}
+
+@mixin padding-right($n: 1) {
+  padding-right: ($base-number * $n);
+}
+
+@mixin padding-left($n: 1) {
+  padding-left: ($base-number * $n);
+}
+
+@mixin padding-bottom($n: 1) {
+  padding-bottom: ($base-number * $n);
+}

@@ -1,0 +1,85 @@
+
+
+@mixin background-img($img, $bgcolor: transparent) {
+  background-color: $bgcolor;
+  background-image: url('${url-root}/${img}');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+
+
+// Blocks
+@mixin block {
+  display: block;
+}
+
+@mixin inline-block($alignment: top) {
+  display: inline-block;
+  vertical-align: $alignment;
+}
+
+@mixin inline {
+  display: inline;
+}
+
+@mixin relative {
+  position: relative;
+}
+
+@mixin absolute {
+  position: absolute;
+}
+
+@mixin fixed {
+  position: fixed;
+}
+
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-item($size: 1) {
+  display: flex-item;
+  flex-grow: $size;
+}
+
+// Positioning
+@mixin center {
+  @include block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin centerize {
+  @include center;
+  max-width: map-get($responsive-sizes, desktop);
+  width: 90%;
+
+  @include responsive(phone) {
+    width: 95%;
+  }
+}
+
+@mixin text-center {
+  text-align: center;
+}
+
+
+@mixin z($n) {
+  z-index: $n;
+}
+
+// Disappearing
+// sass-lint:disable no-important
+.hide {
+  display: none !important;
+}
+
+
+// sass-lint:disable no-qualifying-elements, force-element-nesting
+img.auto-scale {
+  @include padding(2);
+  width: 100%;
+}

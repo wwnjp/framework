@@ -1,0 +1,9 @@
+
+header {
+  @include bg-color(white);
+  @include border-bottom(map-get($colors, gray3));
+  @include drop-shadow;
+  @include z(900);
+  top: 0;
+  width: 100%;
+}

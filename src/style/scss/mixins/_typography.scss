@@ -1,0 +1,59 @@
+
+@mixin text($style: body) {
+  $def: $style;
+
+  @if map-has-key($font-defaults, $style) {
+    $def: map-get($font-defaults, $style);
+  }
+
+  @each $property, $value in $def {
+    #{$property}: $value;
+  }
+}
+
+@mixin text-size($size: normal) {
+  @include text((
+      font-size: map-get($font-sizes, $size)
+  ));
+}
+
+@mixin text-bold($weight: bold) {
+  font-weight: map-get($font-weights, $weight);
+}
+
+@mixin text-italic {
+  font-style: italic;
+}
+
+@mixin text-small {
+  @include text((
+    font-size: map-get($font-sizes, smallest))
+  );
+}
+
+@mixin text-big {
+  @include text(normal);
+  @include text-bold;
+}
+
+@mixin text-underline {
+  text-decoration: underline;
+}
+
+@mixin text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-disappear {
+  left: -9999px;
+  position: absolute;
+}
+
+@mixin text-disappear {
+  left: -9999px;
+  position: absolute;
+}
+
+@mixin text-indent {
+  text-indent: -9999px;
+}

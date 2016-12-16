@@ -1,0 +1,1 @@
+html-minifier --collapse-whitespace --remove-redundant-attributes --input-dir ./src/content/ --output-dir ./dist/

@@ -1,0 +1,5 @@
+@mixin icon($name) {
+  @if $name == 'circle' {
+    content: url('/style/icons/circle.svg');
+  }
+}

@@ -1,0 +1,73 @@
+
+
+// Checkbox Redesign
+input[type='checkbox'] {
+  @include text-disappear;
+
+  & ~ label {
+    @include animate(.5);
+    @include text(heading);
+    @include icon('check');
+
+    &:before {
+      @include animate(.5);
+      @include bg-color(gray5);
+      @include border(map-get($colors, gray5), 0);
+      // @include border-bottom($gray3);
+      @include color(gray5);
+      @include drop-shadow(0, 0, map-get($colors, theme-color2));
+    }
+  }
+
+  &:checked ~ label {
+    @include color(black);
+    @include icon('check');
+
+    &:before {
+      @include color(black);
+    }
+  }
+
+  &[disabled] {
+    & ~ label {
+      @include color(gray2);
+
+      &:before {
+        @include bg-color(gray4);
+        @include color(gray2);
+      }
+    }
+
+    &:checked ~ label {
+      &:before {
+        @include bg-color(gray4);
+        @include color(gray2);
+      }
+    }
+  }
+
+  &:focus ~ label {
+    &:before {
+      @include border(theme-color2);
+      @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color2), .5));
+      outline: none;
+    }
+  }
+
+  &.error {
+    & ~ label {
+      &:before {
+        @include bg-color(gray5);
+        @include border(map-get($colors, gray5), 0);
+        @include border-bottom(map-get($colors, theme-color6));
+        @include color(theme-color6);
+      }
+    }
+
+    &:focus ~ label {
+      &:before {
+        @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color6), .5));
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+
+// BUTTONS
+// ------------------------
+@mixin btn($color) {
+  @include animate;
+  @include bg-color-gradient($color, $color);
+  @include color(white);
+  @include border($color);
+  @include border-radius;
+  @include drop-shadow(0, .25, fade-out(get-color(black), .9));
+  @include inline-block;
+  @include text(body);
+  @include padding(1.5 4);
+  @include text-center;
+  @include transform(translateZ(0));
+  @include responsive(print) {
+    @extend .hide;
+  }
+
+  cursor: pointer;
+  text-decoration: none;
+
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    @include bg-color-gradient($color, $color);
+    @include color(white);
+    @include border($color);
+    @include opacity;
+    @include drop-shadow(0, .25, fade-out(get-color(black), .9));
+    cursor: not-allowed;
+  }
+
+  &:hover,
+  &:focus {
+    @include bg-color-gradient(color-lighten($color));
+    @include border(color-darken($color, 2), .5);
+    @include drop-shadow(1, .25, fade-out(get-color(black), .75));
+    outline: none;
+    text-decoration: none;
+  }
+
+  &:active {
+    @include bg-color-gradient(color-darken($color, 2));
+    @include drop-shadow(0, 0, get-color(black));
+  }
+}
+
+
+// TODO: Remove?
+.btn {
+  @include margin-right(2);
+
+  &.primary {
+    @include btn(theme-color1);
+  }
+
+  &.secondary {
+    @include btn(theme-color2);
+  }
+}
+
+.btn-container {
+  @for $i from 1 through $grid-number-of-columns {
+    & .grid-#{$i} {
+      @include padding-right;
+
+      &:last-child {
+        @include padding-right(0);
+      }
+    }
+  }
+
+  .btn,
+  button[type='submit'],
+  input[type='submit'] {
+    width: 100%;
+  }
+}
+
+
+
+
+input[type=submit],
+button[type=submit],
+.btn-submit {
+  @include btn(theme-color1);
+}

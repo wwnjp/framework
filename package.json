@@ -1,0 +1,56 @@
+{
+  "name": "Framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:assets": "./bin/build-assets",
+    "build:content": "./bin/build-html",
+    "watch:content": "nodemon -q -w src/content --ext '.' --exec 'npm run build:content'",
+    "build:style": "./bin/build-sass",
+    "postbuild:style": "postcss --use autoprefixer -o dist/style/base.css dist/style/base.css",
+    "watch:style": "nodemon -q -w src/style --ext '.' --exec 'npm run build:style'",
+    "lint:style": "./bin/lint-sass",
+    "build:babel": "./bin/babelize",
+    "build:script": "./bin/webpack",
+    "prebuild:script": "npm run build:babel",
+    "watch:script": "nodemon -q -w src/script --ext '.' --exec 'npm run build:script'",
+    "lint:script": "./bin/lint-js",
+    "build": "npm run build:style && npm run build:script && npm run build:content",
+    "prebuild": "npm run clean && npm run lint",
+    "lint": "npm run lint:script && npm run lint:style",
+    "clean": "rimraf dist/*",
+    "start": "node index.js",
+    "watch": "npm run watch:content & npm run watch:style & npm run watch:script",
+    "dev": "npm run watch & npm start"
+  },
+  "author": "Josh Drumm",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "autoprefixer-cli": "^1.0.0",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.9",
+    "babel-preset-env": "^1.0.2",
+    "copy": "^0.3.0",
+    "eslint": "^3.11.1",
+    "express": "^4.14.0",
+    "favicons-webpack-plugin": "0.0.7",
+    "html-minifier": "^3.2.3",
+    "node-sass": "^3.13.0",
+    "nodemon": "^1.11.0",
+    "postcss": "^5.2.6",
+    "postcss-cli": "^2.6.0",
+    "rimraf": "^2.5.4",
+    "s3": "^4.4.0",
+    "sass-lint": "^1.10.2",
+    "uglify": "^0.1.5",
+    "webpack": "^1.14.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}

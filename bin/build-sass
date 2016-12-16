@@ -1,0 +1,1 @@
+node-sass -q --include-path src/style/scss --output-style compact src/style/scss/base.scss -o dist/style 

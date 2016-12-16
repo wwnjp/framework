@@ -1,0 +1,101 @@
+// Variables
+// -----------------
+
+// Colors
+// sass-lint:disable no-color-keywords
+$colors: (
+  white: #fdfffc,
+  black: #261c15,
+
+  gray1: #5a5261,
+  gray2: #a0a0a0,
+  gray3: #c9c9c9,
+  gray4: #dfdfdf,
+  gray5: #f9f9f9,
+
+  theme-color1: #247ba0,
+  theme-color2: #68b0ab,
+  theme-color3: #c5d86d,
+  theme-color4: #ffc758,
+  theme-color5: #90e7a4,
+  theme-color6: #a5393a
+);
+
+$color-change-contrast: 10%;
+$url-root: '/style/img';
+
+
+
+
+
+
+// Animations
+$animation-defaults: (
+  time: .25s,
+  easing: ease-in-out
+);
+
+// Grid Numbers
+$grid-number-of-columns: 12;
+$grid-width-threshold: 25;
+
+
+// Margin/Width Variables
+$base-number: .5em;
+$line-height: 1.5;
+
+
+// Border style defaults
+$border-defaults: (
+  size: 1px,
+  style: solid,
+  color: theme-color1,
+  radius: 4px
+);
+
+
+// Font Faces
+$font-faces: (
+  heading: unquote('Helvetica, Arial, Sans-serif'),
+  body: unquote('Helvetica, Arial, Sans-serif')
+);
+
+// Font sizes
+$font-sizes: (
+  base: .9em,
+  mobile-base: calc(1vw + 1vh + .5vmin),
+  largest: 3rem,
+  larger: 1.25rem,
+  normal: 1rem,
+  smaller: .9rem,
+  smallest: .8rem
+);
+
+// Font sizes
+$font-weights: (
+  extrabold: 700,
+  bolder: 600,
+  bold: 500,
+  normal: 400,
+  light: 100
+);
+
+$font-defaults: (
+  heading: (
+    font-family: map-get($font-faces, heading),
+    font-size:   map-get($font-sizes, largest),
+    font-weight: map-get($font-weights, normal)
+  ),
+  body: (
+    font-family: map-get($font-faces, body),
+    font-size:   map-get($font-sizes, base),
+    font-weight: map-get($font-weights, normal)
+  )
+);
+
+// Responsive Breakpoints
+$responsive-sizes: (
+  desktop: 1200px,
+  tablet: 900px,
+  phone: 600px
+);

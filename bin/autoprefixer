@@ -1,0 +1,1 @@
+postcss --use autoprefixer -o ../src/style/scss/base.prefixed.css ../src/style/scss/base.scss

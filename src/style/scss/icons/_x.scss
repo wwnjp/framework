@@ -1,0 +1,17 @@
+.icon {
+  width: 1rem;
+  fill: none;
+
+  &-x {
+    @include animate;
+    stroke: get-color(theme-color1);
+    stroke-dasharray: 28.28, 0;
+    stroke-dashoffset: 0;
+
+    &.inactive {
+      stroke-dasharray: 0, 28.28;
+      stroke-dashoffset: -17.17;
+    }
+  }
+
+}

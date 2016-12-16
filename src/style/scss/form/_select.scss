@@ -1,0 +1,25 @@
+
+select {
+  @include absolute;
+  @include border-reset;
+  @include padding;
+  @include z(1000);
+  appearance: none;
+  background: transparent;
+  width: 100%;
+}
+
+.select-container {
+  @include relative;
+  @include icon('arrow-up-down');
+
+  &:before {
+    @include absolute;
+    @include padding;
+    @include margin(0);
+    @include z(999);
+    font-size: 125%;
+    right: 0;
+    top: 0;
+  }
+}
