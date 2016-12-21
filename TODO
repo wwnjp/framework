@@ -1,0 +1,21 @@
+TODO
+- Server side rendering research
+- What to do about icons and animations?
+- Font building/embedding
+- Components
+  + carousel
+  + hero (DONE)
+  + tooltip
+  + dropdown
+  + tables (sortable)
+  + svg graphs
+
+- JS Libs
+  + scrolling fx
+  + lazyload
+  + parallax
+  + sticky
+  + form validation
+  + tags?
+  + modals
+  + masking input

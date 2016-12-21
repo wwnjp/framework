@@ -1,11 +1,11 @@
 
-
-@for $i from 1 through $grid-number-of-columns {
+@mixin make-grid($i, $alignment: top) {
   $perc: ($i * 100 / $grid-number-of-columns);
+  $suffix: if($alignment == top, '', '-#{$alignment}');
 
-  .grid-#{$i} {
+  .grid-#{$i}#{$suffix} {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: $alignment;
     width: ($perc * 1%);
 
     @if $perc < $grid-width-threshold {
@@ -14,4 +14,11 @@
       }
     }
   }
+}
+
+@for $i from 1 through $grid-number-of-columns {
+  @include make-grid($i);
+  @include make-grid($i, middle);
+  @include make-grid($i, bottom);
+
 }

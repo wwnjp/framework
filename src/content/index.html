@@ -7,29 +7,46 @@
 <body>
 
 <div class="wrapper">
-<header class="bg-theme-color3">
+<header class="sticky">
   <div class="container">
-    <h1>drumm.io</h1>
-    <h2>Some other heading</h2>
-  </div>
+    <h1 class="grid-8-middle">drumm.io</h1>
 
-  <nav>
-    <ul>
-      <li><a href="#">One</a></li>
-      <li><a href="#">Two</a></li>
-      <li><a href="#">Three</a></li>
-    </ul>
-  </nav>
+    <nav class="grid-4-middle right">
+      <ul>
+        <li><a href="#" data-badge="3">One</a></li>
+        <li><a href="#">Two</a></li>
+        <li><a href="#">Three</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 <main role="main">
+  <section class="hero bg-black">
+    <img src="style/img/hero.png" alt="Hero" />
+    <div class="container parallax" data-parallax-speed="-1" data-parallax-property="top">
+      <p>Welcome to the internet.</p>
+    </div>
+  </section>
 
-  <section class="hero">
 
+  <section class="">
+      <ul class="card-container grid-view">
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+        <li class="card"><div class="card-content"><h3>Yo.</h3></div></li>
+      </ul>
   </section>
 
   <section>
     <div class="container">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <svg viewBox="0 0 20 20" class="icon"><path d="M0 0 L10 10 L0 20 M20 0 L10 10 L20 20" class="icon-x" /></svg>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
@@ -55,10 +72,13 @@
     <fieldset class="grid-4">
       <div class="radio-container">
         <input type="radio" name="r" id="r1" value="" />
-        <label for="r1" class="grid-6">Radio 1</label>
+        <label for="r1">Radio 1</label>
 
         <input type="radio" name="r" id="r2" value="" />
-        <label for="r2" class="grid-6">Radio 2</label>
+        <label for="r2">Radio 2</label>
+
+        <input type="radio" name="r" id="r3" value="" />
+        <label for="r3">Radio 3</label>
       </div>
     </fieldset>
 
@@ -69,7 +89,21 @@
     </div>
     </fieldset>
 
-    <fieldset class="grid-3">
+    <fieldset class="grid-4">
+      <div class="checkbox-container">
+        <input type="checkbox" name="c1" id="c1" value="" />
+        <label for="c1">Check 1</label>
+
+        <input type="checkbox" name="c2" id="c2" value="" />
+        <label for="c2">Check 2</label>
+
+        <input type="checkbox" name="c3" id="c3" value="" />
+        <label for="c3">Check 3</label>
+      </div>
+    </fieldset>
+
+
+    <fieldset class="grid-12">
       <div class="btn-container">
         <div class="grid-6">
           <button type="submit">Search</button>

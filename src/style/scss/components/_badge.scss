@@ -1,0 +1,14 @@
+[data-badge] {
+  &::before {
+    content: attr(data-badge);
+    @include position(absolute);
+    @include text-size(smallest);
+    @include bg-color(theme-color2);
+    @include padding(.5);
+    @include border-radius($line-height * 2);
+    top: -.5em;
+    left: -.5em;
+    min-width: $line-height * 2em;
+    line-height: 1;
+  }
+}

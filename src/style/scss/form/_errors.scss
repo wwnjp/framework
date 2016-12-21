@@ -2,38 +2,38 @@
 
 // Error highlighting
 .error {
-  @include bg-color(gray5);
-  @include border(map-get($colors, gray5), 0);
-  @include border-bottom(map-get($colors, theme-color6));
+  @include bg-color(gray(80%));
+  @include border(gray(80%), 0);
+  @include border-bottom(theme-color6);
 
   &:focus {
-    @include border(map-get($colors, theme-color6), 0);
-    @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color6), .5));
+    @include border(theme-color6, 0);
+    @include drop-shadow(1, 0, get-color(theme-color6, .6));
   }
 }
 
 .warning {
-  @include bg-color(gray5);
-  @include border(map-get($colors, theme-color5));
+  @include bg-color(gray(80%));
+  @include border(theme-color5);
 
   &:focus {
-    @include border(map-get($colors, theme-color5), 0);
-    @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color5), .5));
+    @include border(theme-color5, 0);
+    @include drop-shadow(1, 0, get-color(theme-color5, .5));
   }
 }
 
 .valid {
-  @include bg-color(gray5);
-  @include border(map-get($colors, theme-green));
+  @include bg-color(gray(80%));
+  @include border(theme-color5);
 
   &:focus {
-    @include border(map-get($colors, theme-color4), 0);
-    @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color4), .5));
+    @include border(theme-color4, 0);
+    @include drop-shadow(1, 0, get-color(theme-color4, .5));
   }
 }
 
 .error-field {
-  @include bg-color(gray3);
+  @include bg-color(gray(50%));
   @include color(white);
   @include text-small;
   @include absolute;

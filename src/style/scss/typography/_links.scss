@@ -3,11 +3,26 @@
 // Links
 a {
   @include color(theme-color2);
+  @include display(inline-block);
+  @include position(relative);
   text-decoration: none;
+
+  &:after {
+    @include animate;
+    @include display(block);
+    content: '';
+    @include bg-color(theme-color2);
+    width: 0px;
+    height: 1px;
+  }
 
   &:hover,
   &:focus {
     @include color(color-darken(theme-color2));
-    @include text-underline;
+    // @include text-underline;
+
+    &:after {
+      width: 100%;
+    }
   }
 }

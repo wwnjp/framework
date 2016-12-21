@@ -1,29 +1,28 @@
 h1 {
   @include text(heading);
-  @include color(theme-color1);
   @include margin(0);
-  @include relative;
   font-weight: 100;
+  line-height: 1.5;
 }
 
 h2 {
   @include text(heading);
   @include text-size(normal);
-  @include color(gray2);
-  @include margin(0 0 1);
+  @include margin(0);
   font-weight: 100;
+  line-height: 1.5;
 }
 
 h3 {
   @include text(heading);
-  @include margin-top(0);
-  @include margin-bottom(1.25);
+  @include text-size(smaller);
+  @include margin(0);
   line-height: 1.5;
 }
 
 h4 {
-  @include text(body);
-  @include margin-top(0);
-  @include margin-bottom(1.25);
+  @include text(heading);
+  @include text-size(smaller);
+  @include margin(0);
   line-height: 1.5;
 }

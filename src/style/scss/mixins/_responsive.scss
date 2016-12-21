@@ -25,11 +25,9 @@
     }
 
     @else {
-      $idx: index($keys, $device) - 1;
-      @debug $device, $idx;
+      $idx: index($keys, $device) + 1;
       $device2: nth($vals, $idx);
-      @debug $device, $device2;
-      @media screen and (min-width: #{map-get($responsive-sizes, $device)}) and (max-width: $device2) {
+      @media screen and (min-width: $device2) and (max-width: #{map-get($responsive-sizes, $device)}) {
         @content;
       }
     }

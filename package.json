@@ -52,5 +52,9 @@
     "presets": [
       "env"
     ]
+  },
+  "dependencies": {
+    "angular2-universal": "^2.1.0-rc.1",
+    "body-parser": "^1.15.2"
   }
 }

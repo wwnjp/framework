@@ -1,0 +1,9 @@
+.sticky {
+  @include fixed;
+  @include z(100);
+}
+
+.stickify {
+  @include fixed;
+  @include z(1000);
+}

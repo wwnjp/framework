@@ -1,9 +1,11 @@
 
 // Extra Page Layout Elements
 .card-container {
+  @include bg-color(gray(95%));
+  @include display(flex);
   @include margin(0);
-  @include padding(0);
-  @include relative;
+  @include padding(2 0);
+  @include position(relative);
   list-style-type: none;
 
   .empty-text {
@@ -18,44 +20,30 @@
     width: 40%;
   }
 
-  .card-content {
-    @include margin(1);
+  .card {
+    @include margin(1 0);
     @include padding(2);
     @include bg-color(white);
-    @include text-size(map-get($font-sizes, smaller));
-    @include color(gray1);
-    @include border(map-get($colors, gray4));
-    list-style-type: none;
-  }
-
-  .card {
-    &:first-child {
-      .card-content {
-        @include margin-left(0);
-      }
-    }
+    @include border(gray(80%));
   }
 
   &.grid-view {
-    @include text-center;
-
     .card {
-      @extend .grid-4;
-      @include text-center;
+      flex-basis: 30%;
 
-      &.inactive {
-        @extend .hide;
+      @include responsive(tablet) {
+        flex-basis: 48%;
+      }
+
+      @include responsive(phone) {
+        flex-basis: 100%;
       }
     }
   }
 
   &.list-view {
     .card {
-      @extend .grid-12;
-
-      &.inactive {
-        @extend .hide;
-      }
+      flex-basis: 100%;
     }
   }
 }

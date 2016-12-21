@@ -1,6 +1,20 @@
 
-@function get-color($col) {
-  @return map-get($colors, $col);
+@function get-color($col, $opacity: 100%) {
+  $c: $col;
+
+  @if map-has-key($colors, $col) {
+    $c: map-get($colors, $col);
+  }
+
+  @if $opacity < 100% {
+    $c: opacify($c, $opacity);
+  }
+
+  @return $c;
+}
+
+@function gray($percentage) {
+  @return mix(map-get($colors, white), map-get($colors, black), $percentage);
 }
 
 @function color-lighten($color, $contrast: 1) {
@@ -19,44 +33,52 @@
 @mixin text-white {
   @include color(white);
 
-  a,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @include color(white);
-  }
+  // h1,
+  // h2,
+  // h3,
+  // h4,
+  // h5,
+  // h6 {
+  //   @include color(white);
+  // }
 
   a {
+    @include color(white);
+
+    &:after {
+      @include bg-color(white);
+    }
+
     &:hover,
     &:focus {
       @include color(white);
-      @include text-underline;
     }
   }
 
 }
 
-
-// Colors
 @mixin bg-color($c) {
-  $col: get-color($c);
-
-  @if $c == white {
-    @include color(black);
-    background-color: $col;
-  }
-
-  @elseif lightness($col) >= 64% {
-    @include color(black);
-    background-color: $col;
+  @if $c == transparent {
+    background-color: $c;
   }
 
   @else {
-    @include text-white;
-    background-color: $col;
+    $col: get-color($c);
+
+    @if $c == white {
+      @include color(black);
+      background-color: $col;
+    }
+
+    @elseif lightness($col) >= 64% {
+      @include color(black);
+      background-color: $col;
+    }
+
+    @else {
+      @include text-white;
+      background-color: $col;
+    }
   }
 }
 

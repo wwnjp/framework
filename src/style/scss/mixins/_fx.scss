@@ -1,12 +1,14 @@
 
 
-@mixin round {
+@mixin round($size: $line-height) {
   border-radius: 50%;
+  width: $size * 1em;
+  height: $size * 1em;
 }
 
 
 @mixin drop-shadow($size: 1, $distance: 0, $color: rgba(0, 0, 0, .25), $x: 0) {
-  box-shadow: $x ($distance * $base-number) ($base-number * $size) $color;
+  box-shadow: $x ($distance * $base-number) ($base-number * $size) get-color($color);
 }
 
 
@@ -22,6 +24,11 @@
 .three-d-base {
   perspective: 1000;
   transform-style: preserve-3d;
+}
+
+.parallax {
+  position: relative;
+  top: 0;
 }
 
 @mixin transform($rules) {
@@ -78,10 +85,6 @@
 
 
 // JS FX
-.stickify {
-  @include fixed;
-  @include z(1000);
-}
 
 
 .show-on-scroll {

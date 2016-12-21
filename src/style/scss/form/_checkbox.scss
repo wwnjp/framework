@@ -1,52 +1,41 @@
 
+.checkbox-container {
+  @include display(flex);
+}
 
 // Checkbox Redesign
 input[type='checkbox'] {
   @include text-disappear;
 
-  & ~ label {
-    @include animate(.5);
-    @include text(heading);
-    @include icon('check');
+  & + label {
+    @include flex-item;
+    @include text(body);
+    @include padding(1.5 1);
+    // @include text-no-wrap;
 
     &:before {
+      @include icon('check-inactive', theme-color1);
       @include animate(.5);
-      @include bg-color(gray5);
-      @include border(map-get($colors, gray5), 0);
-      // @include border-bottom($gray3);
-      @include color(gray5);
+      @include display(inline-block, middle);
+      @include bg-color(gray(95%));
+      @include border(gray(60%));
       @include drop-shadow(0, 0, map-get($colors, theme-color2));
+      @include margin-right;
+      @include text-center;
+      height: ($line-height * 1em);
+      line-height: ($line-height * .9em);
+      width: ($line-height * 1em);
     }
   }
 
-  &:checked ~ label {
-    @include color(black);
-    @include icon('check');
-
+  &:checked + label {
     &:before {
-      @include color(black);
+      @include icon('check', theme-color1);
     }
   }
 
-  &[disabled] {
-    & ~ label {
-      @include color(gray2);
 
-      &:before {
-        @include bg-color(gray4);
-        @include color(gray2);
-      }
-    }
-
-    &:checked ~ label {
-      &:before {
-        @include bg-color(gray4);
-        @include color(gray2);
-      }
-    }
-  }
-
-  &:focus ~ label {
+  &:focus + label {
     &:before {
       @include border(theme-color2);
       @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color2), .5));
@@ -54,19 +43,27 @@ input[type='checkbox'] {
     }
   }
 
+  &[disabled] + label {
+    @include color(gray2);
+
+    &:before {
+      @include bg-color(gray(75%));
+    }
+  }
+
   &.error {
     & ~ label {
       &:before {
-        @include bg-color(gray5);
-        @include border(map-get($colors, gray5), 0);
-        @include border-bottom(map-get($colors, theme-color6));
+        @include bg-color(gray(80%));
+        @include border(gray(80%), 0);
+        @include border-bottom(theme-color6);
         @include color(theme-color6);
       }
     }
 
     &:focus ~ label {
       &:before {
-        @include drop-shadow(1, 0, fade-out(map-get($colors, theme-color6), .5));
+        @include drop-shadow(1, 0, get-color(theme-color6, .5));
       }
     }
   }

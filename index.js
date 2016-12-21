@@ -10,7 +10,6 @@ app.use(express.static(path.join(__dirname, 'dist')))
 app.get('/foodtrucks', function(req, res) {
 });
 
-app.listen(PORT, function() {
-  console.log('Server Running on Port 3000');
+app.listen(PORT, () => {
+  console.log('Server Running on Port ', PORT);
 });
-

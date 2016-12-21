@@ -1,0 +1,9 @@
+
+body {
+  @include bg-color(white);
+  @include margin(0);
+  @include padding(0);
+  @include relative;
+  height: 100%;
+  line-height: $line-height;
+}

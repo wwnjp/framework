@@ -1,0 +1,24 @@
+.hero {
+  @include position(relative);
+  @include display(flex, center);
+  @include text-size(largest);
+  width: 100vw;
+  height: $hero-height;
+  overflow: hidden;
+
+  .container {
+    @include position(relative);
+    @include z(3);
+  }
+
+  video,
+  img {
+    @include position(absolute);
+    @include z(1);
+    object-fit: cover;
+    // height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}

@@ -7,8 +7,9 @@ textarea {
   line-height: inherit;
 }
 
+
 form {
-  @include margin(0);
+  @include margin(1 0);
 }
 
 fieldset {
@@ -21,7 +22,7 @@ fieldset {
 }
 
 .field-container {
-  @include relative;
+  @include position(relative);
   @include margin-bottom(2);
   @include padding-right(3);
 
@@ -32,26 +33,25 @@ fieldset {
     @include animate(.5);
     @include block;
     @include bg-color(white);
-    @include border(gray4);
+    @include border(gray(75%));
     @include border-radius;
     @include drop-shadow(0, 0, get-color(theme-color2));
     @include text(body);
     @include padding(1.5 1);
-    line-height: 1.4;
     width: 100%;
 
     // Focus
     &:focus,
     &.success {
       @include border(theme-color2);
-      @include drop-shadow(1, 0, fade-out(get-color(theme-color2), .5));
+      @include drop-shadow(1, 0, get-color(theme-color5, .5));
       outline: none;
     }
 
     // Disabled
     &.disabled,
     &[disabled=disabled] {
-      @include bg-color(gray3);
+      @include bg-color(gray(50%));
       @include opacity;
       cursor: default;
     }
@@ -67,10 +67,26 @@ fieldset {
         margin: 0;
       }
     }
-  }
 
+
+    // Resets -- Pulled from Normalize.css
+    &[type="search"] {
+      -webkit-appearance: textfield;
+      outline-offset: -2px;
+    }
+
+    &[type="search"]::-webkit-search-cancel-button,
+    &[type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+  }
 
   textarea {
     resize: none;
   }
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
 }

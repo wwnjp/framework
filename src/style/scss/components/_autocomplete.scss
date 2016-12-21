@@ -3,10 +3,10 @@
 // Autocomplete
 .autocomplete {
   .autocomplete-list {
-    @include absolute;
-    @include margin(0 0);
-    @include padding(0 0);
-    @include border(map-get($colors, gray3), .5);
+    @include position(absolute);
+    @include margin(0);
+    @include padding(0);
+    @include border(gray(60%), .5);
     @include bg-color(white);
     @include drop-shadow(1, .5);
     @include z(1000);
@@ -20,27 +20,27 @@
 
     li {
       span {
-        @include padding(1 1);
+        @include padding(1);
         @include block;
-        @include color(gray3);
+        @include color(gray(60%));
         @include text(normal);
         @include text-italic;
       }
 
       a {
-        @include block;
-        @include text(normal);
-        @include color(gray2);
-        @include padding(1 1);
-        text-decoration: none;
+        @include display(block);
+        // @include text();
+        // @include color(gray(40%));
+        @include padding(1);
+        // text-decoration: none;
 
-        &:hover {
-          @include color(theme-color4);
-          @include text-underline;
-        }
+        // &:hover {
+        //   @include color(theme-color2);
+        //   @include text-underline;
+        // }
 
         &.selected {
-          @include bg-color(theme-color4);
+          @include bg-color(theme-color2);
         }
       }
     }

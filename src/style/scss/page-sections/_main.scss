@@ -12,8 +12,9 @@
 :root {
   -webkit-font-smoothing: antialiased;
   @include text(body);
-  // font-size: map-get($font-sizes, base);
   height: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 
   @include responsive(phone) {
     font-size: map-get($font-sizes, mobile-base);
@@ -24,15 +25,6 @@
   outline: map-get($colors, theme-color2);
 }
 
-
-body {
-  @include bg-color(white);
-  @include margin(0);
-  @include padding(0);
-  @include relative;
-  height: 100%;
-  line-height: $line-height;
-}
 
 
 
