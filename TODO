@@ -4,7 +4,6 @@ TODO
 - Font building/embedding
 - Components
   + carousel
-  + hero (DONE)
   + tooltip
   + dropdown
   + tables (sortable)
@@ -19,3 +18,9 @@ TODO
   + tags?
   + modals
   + masking input
+
+- Performance
+  + HTTP2 Support?
+  + Critical Path CSS/JS
+  + Lazy load support, btf
+  + Skeleton Screens
